@@ -1,6 +1,7 @@
 const productContainer = document.querySelector(".products-container")
 const category = document.querySelector(".category_btn")
 const err = document.querySelector(".error404")
+const searchForm = document.getElementById("searchForm")
 let categoryId = localStorage.getItem("sortId") || "all"
 
 const BASE_URL = "https://fakestoreapi.com/products"
@@ -8,10 +9,26 @@ const BASE_URL = "https://fakestoreapi.com/products"
 function getDataFetch() {
     fetch(BASE_URL)
         .then((res) => res.json())
-        .then((res) => getData(res))
+        .then((res) => {
+            getData(res)
+            searchProduct(res)
+        })
         .catch(() => {
             err.style.display = "flex"
         })
+}
+
+function searchProduct(data) {
+    searchForm.addEventListener("change", (e) => {
+        e.preventDefault()
+        const searchInput = searchForm.children[0].value
+
+        const newData = data.filter((value) =>
+            value.title.toLowerCase().includes(searchInput.toLowerCase())
+        )
+
+        getData(newData)
+    })
 }
 
 function getData(data) {
@@ -42,7 +59,9 @@ function getData(data) {
 
             <div class="product-price">
                 <h1><span>${value?.price}</span>$</h1>
-                <h2><span>${(value?.price + Math.random() * 25).toFixed(2)}</span>$</h2>
+                <h2><span>${(value?.price + Math.random() * 25).toFixed(
+                    2
+                )}</span>$</h2>
             </div>
 
             <div class="bottom-info">

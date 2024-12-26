@@ -184,3 +184,27 @@ body {
 .category_btn button:active {
     transform: scale(.98);
 }
+
+#searchForm {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 10px;
+}
+
+#searchForm input {
+    width: 100%;
+    border: 1px solid blueviolet;
+    padding: 5px 10px;
+    border-radius: 5px;
+    outline: none;
+    background: transparent;
+    color: blueviolet;
+}
+
+#searchForm button {
+    padding: 6px 10px;
+    background: blueviolet;
+    border-radius: 5px;
+    color: #fff;
+}
