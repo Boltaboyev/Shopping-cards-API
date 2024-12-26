@@ -570,8 +570,16 @@ video {
   z-index: 10;
 }
 
+.z-\[1000\] {
+  z-index: 1000;
+}
+
 .ml-\[5px\] {
   margin-left: 5px;
+}
+
+.block {
+  display: block;
 }
 
 .flex {
@@ -612,6 +620,11 @@ video {
 
 .gap-\[20px\] {
   gap: 20px;
+}
+
+.bg-white {
+  --tw-bg-opacity: 1;
+  background-color: rgb(255 255 255 / var(--tw-bg-opacity, 1));
 }
 
 .py-\[30px\] {
@@ -675,7 +688,7 @@ body {
   padding: 10px;
   border: 1px solid #1a1a1a23;
   border-radius: 10px;
-  transition: .3s;
+  transition: 0.3s;
   background: #fff;
 }
 
@@ -693,7 +706,7 @@ body {
 }
 
 .product-img img {
-  transition: .5s;
+  transition: 0.5s;
   height: 160px;
   width: 130px;
   -o-object-fit: contain;
@@ -720,7 +733,7 @@ body {
   background: blueviolet;
 }
 
-.product-name h3{
+.product-name h3 {
   font-size: 20px;
   font-weight: 500;
   color: #1a1a1a;
@@ -729,7 +742,7 @@ body {
 
 .product-desc p {
   color: #413f3f;
-  opacity: .7;
+  opacity: 0.7;
   font-size: 14px;
   font-weight: 400;
   line-height: 120%;
@@ -745,7 +758,7 @@ body {
 .product-price h1 {
   font-size: 20px;
   font-weight: 700;
-  opacity: .8;
+  opacity: 0.8;
 }
 
 .product-price h2 {
@@ -763,7 +776,7 @@ body {
 
 .bottom-info p {
   font-weight: 500;
-  opacity: .8;
+  opacity: 0.8;
   font-size: 12px;
 }
 
@@ -786,7 +799,7 @@ body {
   margin-top: 10px;
   color: #fff;
   font-weight: 400;
-  transition: background .2s;
+  transition: background 0.2s;
 }
 
 .btn:hover {
@@ -794,7 +807,7 @@ body {
 }
 
 .btn:active {
-  transform: scale(.99);
+  transform: scale(0.99);
   background: blueviolet;
 }
 
@@ -816,7 +829,7 @@ body {
 }
 
 .category_btn button:active {
-  transform: scale(.98);
+  transform: scale(0.98);
 }
 
 #searchForm {
@@ -841,6 +854,37 @@ body {
   background: blueviolet;
   border-radius: 5px;
   color: #fff;
+}
+
+.loader {
+  width: 20px;
+  aspect-ratio: 1;
+  border-radius: 50%;
+  background: blueviolet;
+  box-shadow: 0 0 0 0 rgb(148, 108, 185);
+  animation: l2 1.5s infinite linear;
+  position: relative;
+}
+
+.loader:before,
+.loader:after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  border-radius: inherit;
+  box-shadow: 0 0 0 0 rgb(148, 108, 185);
+  animation: inherit;
+  animation-delay: -0.5s;
+}
+
+.loader:after {
+  animation-delay: -1s;
+}
+
+@keyframes l2 {
+  100% {
+    box-shadow: 0 0 0 40px #0000;
+  }
 }
 
 @media (max-width: 1160px) {

@@ -2,7 +2,10 @@ const productContainer = document.querySelector(".products-container")
 const category = document.querySelector(".category_btn")
 const err = document.querySelector(".error404")
 const searchForm = document.getElementById("searchForm")
+const loading = document.querySelector(".loading")
 let categoryId = localStorage.getItem("sortId") || "all"
+
+console.log(loading)
 
 const BASE_URL = "https://fakestoreapi.com/products"
 
@@ -32,6 +35,8 @@ function searchProduct(data) {
 }
 
 function getData(data) {
+    loading.style.display = "flex"
+
     productContainer.innerHTML = ""
     if (categoryId !== "all") {
         data = data.filter((element) => element.category === categoryId)
@@ -76,6 +81,7 @@ function getData(data) {
             <button class="btn">Add to cart <i class="fa-solid fa-cart-shopping ml-[5px] text-[12px]"></i></button>
         `
         productContainer.append(card)
+        loading.style.display = "none"
     })
 }
 
